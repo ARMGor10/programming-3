@@ -99,6 +99,7 @@ let soilArr = [];
 let tornadoArr = [];
 
 function setup() {
+        console.log("Hello world")
         frameRate(7);
 
         createCanvas(matrix[0].length * side, matrix.length * side);
