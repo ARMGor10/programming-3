@@ -51,75 +51,75 @@ class Water {
         }
     }
 
-//
-// eat() {
-//     let foods = this.chooseCell(1)
-//     let food = random(foods)
 
-//     if (food) {
-//         this.energy++
+eat() {
+    let foods = this.chooseCell(1)
+    let food = random(foods)
 
-//         let newX = food[0]
-//         let newY = food[1]
+    if (food) {
+        this.energy++
 
-//         for (let i in grassArray) {
-//             if (newX == grassArray[i].x && newY == grassArray[i].y) {
-//                 grassArray.splice(i, 1)
-//                 break;
-//             }
-//         }
+        let newX = food[0]
+        let newY = food[1]
 
-//         matrix[newY][newX] = 2
+        for (let i in grassArray) {
+            if (newX == grassArray[i].x && newY == grassArray[i].y) {
+                grassArray.splice(i, 1)
+                break;
+            }
+        }
 
-//         matrix[this.y][this.x] = 0
+        matrix[newY][newX] = 2
 
-//         this.x = newX
-//         this.y = newY
+        matrix[this.y][this.x] = 0
 
-//         if (this.energy >= 13) {
-//             this.mul()
-//         }
+        this.x = newX
+        this.y = newY
 
-
-
-//     } else {
-//         this.move()
-//     }
-// }
-
-// move() {
-//     this.energy--;
-//     let emptyCell = this.chooseCell(0);
-//     let newCell = random(emptyCell);
-
-//     if (newCell) {
-//         let newX = newCell[0];
-//         let newY = newCell[1];
+        if (this.energy >= 13) {
+            this.mul()
+        }
 
 
-//         matrix[newY][newX] = 2;
-//         matrix[this.y][this.x] = 0;
 
-//         this.x = newX;
-//         this.y = newY;
-//     }
+    } else {
+        this.move()
+    }
+}
 
-//     if (this.energy <= 0) {
-//         this.die()
-//     }
+move() {
+    this.energy--;
+    let emptyCell = this.chooseCell(0);
+    let newCell = random(emptyCell);
 
-// }
+    if (newCell) {
+        let newX = newCell[0];
+        let newY = newCell[1];
 
-// die() {
-//     matrix[this.y][this.x] = 0;
 
-//     for (let i in grassEaterArr) {
-//         if (this.x == waterArr[i].x && this.y == grassEaterArr[i].y) {
-//             grassEaterArr.splice(i, 1);
-//             break;
-//         }
-//     }
-// }
+        matrix[newY][newX] = 2;
+        matrix[this.y][this.x] = 0;
+
+        this.x = newX;
+        this.y = newY;
+    }
+
+    if (this.energy <= 0) {
+        this.die()
+    }
+
+}
+
+die() {
+    matrix[this.y][this.x] = 0;
+
+    for (let i in grassEaterArr) {
+        if (this.x == waterArr[i].x && this.y == grassEaterArr[i].y) {
+            grassEaterArr.splice(i, 1);
+            break;
+        }
+    }
+}
 
 
 

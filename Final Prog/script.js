@@ -1,4 +1,4 @@
-function matrixGenerator(matrixSize, grassCount, grassEaterCount, waterCount, predatorCount,soilCount,tornadoCount) {
+function matrixGenerator(matrixSize, grassCount, grassEaterCount, waterCount, predatorCount, soilCount, tornadoCount) {
         let matrix = [];
         for (let i = 0; i < matrixSize; i++) {
                 matrix.push([]);
@@ -72,7 +72,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, waterCount, pr
                 let y = Math.floor(Math.random() * matrixSize);
 
                 if (matrix[y][x] == 0) {
-                        matrix[y][x] = 6        
+                        matrix[y][x] = 6
                 }
 
 
@@ -118,10 +118,10 @@ function setup() {
                                 let grPred = new Predator(x, y)
                                 predatorArr.push(grPred)
                         } else if (matrix[y][x] == 5) {
-                                let grSoil = new Soil (x, y)
+                                let grSoil = new Soil(x, y)
                                 soilArr.push(grSoil)
-                        }else if (matrix[y][x] == 6) {
-                                let grTor = new Tornado (x, y)
+                        } else if (matrix[y][x] == 6) {
+                                let grTor = new Tornado(x, y)
                                 tornadoArr.push(grTor)
                         }
 
@@ -147,7 +147,7 @@ function draw() {
                                 fill('#994C00')
                         } else if (matrix[y][x] == 6) {
                                 fill('#000000')
-                        }  else {
+                        } else {
                                 fill("gray")
                         }
                         rect(x * side, y * side, side, side)
@@ -177,8 +177,30 @@ function draw() {
 }
 
 
-//խոտին ուտում է խոտակերը
-//խոտին ու խոտակերին գիշատիչը 
-//ջուրը ավելացնելու է խոտ
-//հողը վերացնում է ջրին
-//փոթորիկը վերացնում է ամբողջը 
+// //խոտին ուտում է խոտակերը
+// //խոտին ու խոտակերին գիշատիչը 
+// //ջուրը ավելացնելու է խոտ
+// //հողը վերացնում է ջրին
+// //փոթորիկը վերացնում է ամբողջը 
+
+
+
+
+// let student = {
+//         name: "Gor",
+//         age: 16,
+//         isTumoStudent: true,
+//         showInfo() {
+//                 console.log(this.name,this.age)
+//         }
+// }
+
+// student.showInfo()
+
+// let erexa = new Child("Gor",16,"male");
+// erexa.jump()
+// erexa.speak()
+// erexa.walk()
+
+
+// console.log(erexa.name,erexa.gen);
