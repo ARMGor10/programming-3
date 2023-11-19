@@ -2,9 +2,9 @@ let LivingCreature = require('./LivingCreature')
 
 module.exports = class Water extends LivingCreature {
     constructor(x, y) {
-        super(x,y)
+        super(x, y)
         this.energy = 8
-        
+
 
 
     }
@@ -20,6 +20,7 @@ module.exports = class Water extends LivingCreature {
             [this.x + 1, this.y + 1]
         ];
     }
+
     chooseCell(character) {
         this.getNewCordinates()
         return super.chooseCell(character)
@@ -28,7 +29,7 @@ module.exports = class Water extends LivingCreature {
     mul() {
 
         let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             let newX = newCell[0]
@@ -36,21 +37,21 @@ module.exports = class Water extends LivingCreature {
 
             matrix[newY][newX] = 3
             let grWat = new Water(newX, newY)
-            WaterArr.push(grWat);
+            waterArr.push(grWat);
 
         }
     }
 
 
-    eat() {
-        let foods = this.chooseCell(1)
-        let food = random(foods)
+    add() {
+        let adds = this.chooseCell(1)
+        let add = adds[Math.floor(Math.random() * adds.length)]
 
-        if (food) {
+        if (add) {
             this.energy++
 
-            let newX = food[0]
-            let newY = food[1]
+            let newX = add[0]
+            let newY = add[1]
 
             for (let i in grassArray) {
                 if (newX == grassArray[i].x && newY == grassArray[i].y) {
@@ -59,9 +60,9 @@ module.exports = class Water extends LivingCreature {
                 }
             }
 
-            matrix[newY][newX] = 2
+            matrix[newY][newX] = 3
 
-            matrix[this.y][this.x] = 0
+            matrix[this.y][this.x] = 1
 
             this.x = newX
             this.y = newY
@@ -76,11 +77,10 @@ module.exports = class Water extends LivingCreature {
             this.move()
         }
     }
-
     move() {
         this.energy--;
-        let emptyCell = this.chooseCell(0);
-        let newCell = random(emptyCell);
+        let emptyCells = this.chooseCell(0);
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             let newX = newCell[0];
@@ -101,11 +101,11 @@ module.exports = class Water extends LivingCreature {
     }
 
     die() {
-        matrix[this.y][this.x] = 0;
+        matrix[this.y][this.x] = 1;
 
-        for (let i in grassEaterArr) {
-            if (this.x == waterArr[i].x && this.y == grassEaterArr[i].y) {
-                grassEaterArr.splice(i, 1);
+        for (let i in waterArr) {
+            if (this.x == waterArr[i].x && this.y == waterArr[i].y) {
+                waterArr.splice(i, 1);
                 break;
             }
         }

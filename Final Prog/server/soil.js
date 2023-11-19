@@ -31,7 +31,7 @@ module.exports = class Soil extends LivingCreature {
     mul() {
 
         let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             let newX = newCell[0]
@@ -49,7 +49,7 @@ module.exports = class Soil extends LivingCreature {
 
     eat() {
         let foods = this.chooseCell(3)
-        let food = random(foods)
+        let food = foods[Math.floor(Math.random() * foods.length)]
 
         if (food) {
             this.energy++
@@ -84,8 +84,8 @@ module.exports = class Soil extends LivingCreature {
 
     move() {
         this.energy--;
-        let emptyCell = this.chooseCell(0);
-        let newCell = random(emptyCell);
+        let emptyCells = this.chooseCell(0);
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             let newX = newCell[0];

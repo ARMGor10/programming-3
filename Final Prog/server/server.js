@@ -4,7 +4,7 @@ let server = require('http').Server(app);
 let io = require('socket.io')(server);
 let fs = require("fs");
 
-app.use(express.static("."));
+app.use(express.static("../client"));
 
 app.get('/', function (req, res) {
     res.redirect('index.html');
@@ -99,7 +99,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, waterCount, pr
     return matrix;
 }
 
-let matrix = matrixGenerator(20, 45, 10, 25, 3, 15, 2);
+matrix = matrixGenerator(20, 45, 10, 25, 4, 15, 3);
 
 io.sockets.emit('send matrix', matrix)
 
@@ -114,17 +114,17 @@ tornadoArr = [];
 
 Grass = require("./grass")
 GrassEater = require("./grassEater")
-WaterArr = require("./water")
-PredatorArr = require("./predator")
-SoilArr = require("./soil")
-TornadoArr = require("./tornado")
+Water = require("./water")
+Predator = require("./predator")
+Soil = require("./soil")
+Tornado = require("./tornado")
 
 function createObject(matrix) {
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
                 let gr = new Grass(x, y, 1);
-                grassArr.push(gr)
+                grassArray.push(gr)
             }
             else if (matrix[y][x] == 2) {
                 let grEater = new GrassEater(x, y, 2);
@@ -168,15 +168,16 @@ function game() {
     }
     for (let i in waterArr) {
         waterArr[i].add()
-        for (let i in soilArr) {
-            soilArr[i].eat()
-        }
-        for (let i in tornadoArr) {
-            tornadoArr[i].eat()
-        }
-        io.sockets.emit("send matrix", matrix);
     }
+    for (let i in soilArr) {
+        soilArr[i].eat()
+    }
+    for (let i in tornadoArr) {
+        tornadoArr[i].eat()
+    }
+    io.sockets.emit("send matrix", matrix);
 }
+
 setInterval(game, 1000)
 
 
