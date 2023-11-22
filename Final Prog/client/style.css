@@ -1,3 +1,40 @@
-/* .body{
-    background-color: green;
-} */
+html{
+    background-color: #ceb0f6;
+}
+
+
+button{
+    border: none;
+    padding: 8px 35px;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(223, 238, 170);
+    color: #272dda;
+    box-shadow: 0 5px 8px 2px #1b1b1b;
+    transition: 0.3s all ease-in-out;
+    transition: 0.5s box-shadow ease-in;
+    margin: 5px;
+}
+
+.a:hover{
+    background-color:#1bcc15;
+    color: #a31212;
+    box-shadow: 0 0 12px 5px #648ff5;
+}
+
+.b:hover{
+    background-color:#da7d1a;
+    color: #a31212;
+    box-shadow: 0 0 12px 5px #648ff5;
+}
+.aa:hover{
+    background-color:#dad01a;
+    color: #a31212;
+    box-shadow: 0 0 12px 5px #648ff5;
+}
+.bb:hover{
+    background-color:#e6e2e2;
+    color: #a31212;
+    box-shadow: 0 0 12px 5px #648ff5;
+}
