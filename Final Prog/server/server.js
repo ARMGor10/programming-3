@@ -180,9 +180,14 @@ function game() {
 
 setInterval(game, 1000)
 
+function handleWinter(){
+    console.log("w===========>>>");
+}
 
-io.on('connection', function () {
-    createObject(matrix)
+
+io.on('connection', function (socket) {
+    createObject(matrix);
+    socket.on("winter", handleWinter)
 })
 
 

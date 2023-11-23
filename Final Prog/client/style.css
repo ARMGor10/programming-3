@@ -20,21 +20,21 @@ button{
 .a:hover{
     background-color:#1bcc15;
     color: #a31212;
-    box-shadow: 0 0 12px 5px #648ff5;
+    box-shadow: 0 0 12px 5px #0436ac;
 }
 
 .b:hover{
     background-color:#da7d1a;
     color: #a31212;
-    box-shadow: 0 0 12px 5px #648ff5;
+    box-shadow: 0 0 12px 5px #0436ac;
 }
 .aa:hover{
     background-color:#dad01a;
     color: #a31212;
-    box-shadow: 0 0 12px 5px #648ff5;
+    box-shadow: 0 0 12px 5px #0436ac;
 }
 .bb:hover{
     background-color:#e6e2e2;
     color: #a31212;
-    box-shadow: 0 0 12px 5px #648ff5;
+    box-shadow: 0 0 12px 5px #0436ac;
 }
