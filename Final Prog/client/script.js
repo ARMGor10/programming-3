@@ -1,5 +1,7 @@
 let socket = io();
 let side = 40;
+let rows = 20;
+let cols = 20;
 
 let grassColor = "green"
 let grassEaterColor = "yellow"
@@ -37,30 +39,6 @@ function drawGame(matrix) {
         }
 
 }
-
-// function click (matrix) {
-//         for (let y = 0; y < matrix.length; y++) {
-//                 for (let x = 0; x < matrix[y].length; x++) {
-//                         if (matrix[y][x] == 1) {
-//                                 fill("#207C10")
-//                         } else if (matrix[y][x] == 2) {
-//                                 fill("#FBFF92")
-//                         } else if (matrix[y][x] == 3) {
-//                                 fill("#0048BE")
-//                         } else if (matrix[y][x] == 4) {
-//                                 fill("orange")
-//                         } else if (matrix[y][x] == 5) {
-//                                 fill('#93FF47')
-//                         } else if (matrix[y][x] == 6) {
-//                                 fill('#494949')
-//                         } else {
-//                                 fill("gray")
-//                         }
-//                         rect(x * side, y * side, side, side)
-//                 }
-//         }
-
-// }
 
 
 setInterval(
@@ -115,7 +93,36 @@ function handleWinterClick() {
         predatorColor = "#6005A9"
         soilColor = '#532703'
         tornadoColor = '#061255'
-
-        socket.emit("winter")
 }
 
+
+// let buttonBO = document.getElementById("BOElement");
+// buttonBO.addEventListener("click", handleBOOMClick);
+
+// function handleBOOMClick() {
+       
+// }
+
+    // button to clear
+//     let buttonBo = document.getElementById('BOElement');
+//     buttonBo.addEventListener("click", handleBOOMClick);
+    
+// //     // button to set random initial state
+//     let randomButton = document.getElementById("BOOM");
+//     randomButton.addEventListener = randomButtonClick;
+
+
+// function handleBOOMClick() {
+    
+//     cleaButtonrHandler();
+//     for (let i = 0; i < rows; i++) {
+//         for (let j = 0; j < cols; j++) {
+//             let isLive = Math.round(Math.random());
+//             if (isLive == 1) {
+//                 let cell = document.getElementById(i + "_" + j);
+//                 cell.setAttribute("class", "live");
+//                 grid[i][j] = 1;
+//             }
+//         }
+//     }
+// }
