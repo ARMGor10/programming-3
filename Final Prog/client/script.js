@@ -87,13 +87,35 @@ let buttonWi = document.getElementById("WiElement");
 buttonWi.addEventListener("click", handleWinterClick);
 
 function handleWinterClick() {
-        grassColor = "#1BC3C4"
+        grassColor = "#FFFFFF"
         grassEaterColor = "#FF0000"
         waterColor = "#0F00E4"
         predatorColor = "#6005A9"
         soilColor = '#532703'
         tornadoColor = '#061255'
 }
+
+// let buttonDi = document.getElementById("DiElement");
+// buttonDi.addEventListener("click", handleDiseaseClick);
+
+
+// function handleDiseaseClick() {
+//         grassColor = "#978A50"
+//         grassEaterColor = "gray"
+//         waterColor = "#000000"
+//         predatorColor = "#gray"
+//         soilColor = '#280909'
+//         tornadoColor = '#302A0E'
+// }
+
+
+
+
+
+
+
+
+
 
 
 // let buttonBO = document.getElementById("BOElement");
@@ -116,7 +138,7 @@ function handleWinterClick() {
     
 //     cleaButtonrHandler();
 //     for (let i = 0; i < rows; i++) {
-//         for (let j = 0; j < cols; j++) {
+//         for (let j = 0; j < cols; j+) {
 //             let isLive = Math.round(Math.random());
 //             if (isLive == 1) {
 //                 let cell = document.getElementById(i + "_" + j);
