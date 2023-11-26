@@ -1,7 +1,7 @@
 let socket = io();
 let side = 40;
-let rows = 20;
-let cols = 20;
+// let rows = 20;
+// let cols = 20;
 
 let grassColor = "green"
 let grassEaterColor = "yellow"
@@ -11,7 +11,7 @@ let soilColor = "#994C00"
 let tornadoColor = "#000000"
 
 function setup() {
-        frameRate(7);
+        frameRate(15);
         createCanvas(20 * side, 20 * side);
 }
 
@@ -69,6 +69,10 @@ function handleSummerClick() {
         predatorColor = "#040F60"
         soilColor = '#6B4100'
         tornadoColor = '#FF0909'
+
+
+        socket.emit("Summer")
+
 }
 
 let buttonAu = document.getElementById("AuElement");
@@ -81,6 +85,8 @@ function handleAutumnClick() {
         predatorColor = "#373737"
         soilColor = '#586722'
         tornadoColor = '#731717'
+
+        socket.emit("Autumn")
 }
 
 let buttonWi = document.getElementById("WiElement");
@@ -93,20 +99,22 @@ function handleWinterClick() {
         predatorColor = "#6005A9"
         soilColor = '#532703'
         tornadoColor = '#061255'
+
+        socket.emit("Winter")
 }
 
-// let buttonDi = document.getElementById("DiElement");
-// buttonDi.addEventListener("click", handleDiseaseClick);
+let buttonDi = document.getElementById("DiElement");
+buttonDi.addEventListener("click", handleDiseaseClick);
 
 
-// function handleDiseaseClick() {
-//         grassColor = "#978A50"
-//         grassEaterColor = "gray"
-//         waterColor = "#000000"
-//         predatorColor = "#gray"
-//         soilColor = '#280909'
-//         tornadoColor = '#302A0E'
-// }
+function handleDiseaseClick() {
+        grassColor = "#978A50"
+        grassEaterColor = "gray"
+        waterColor = "#000000"
+        predatorColor = "#gray"
+        soilColor = '#280909'
+        tornadoColor = '#302A0E'
+}
 
 
 

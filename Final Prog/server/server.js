@@ -99,7 +99,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, waterCount, pr
     return matrix;
 }
 
-matrix = matrixGenerator(20, 45, 10, 25, 4, 15, 3);
+matrix = matrixGenerator(20, 45, 10, 25, 4, 15, 4);
 
 io.sockets.emit('send matrix', matrix)
 
@@ -180,15 +180,76 @@ function game() {
 
 setInterval(game, 1000)
 
-function handleWinter(){
-    console.log("w===========>>>");
+io.on('connection', function () {
+    createObject(matrix)
+})
+
+
+let obj = {
+  grass:0,
+  grassEater:0,
+  water:0,
+  predator:0,
+  soil:0,
+  tornado:0
+
 }
 
 
+function Time() {
+        obj.grass =  grassArray.length
+        obj.grassEater = grassEaterArr.length
+        obj.water = waterArr.length
+        obj.predator = predatorArr.length
+        obj.soil = soilArr.length
+        obj.tornado= tornadoArr.length
+        fs.writeFile("statistics.json", JSON.stringify(obj), function (err) {
+            console.log("fs.writeFile ended");
+        });
+        
+}
+
+setInterval(Time,2000)
+
 io.on('connection', function (socket) {
     createObject(matrix);
-    socket.on("winter", handleWinter)
+    socket.on("Summer", handleSummer)
+    socket.on("Autumn", handleAutumn)
+    socket.on("Winter", handleWinter)
+
 })
+
+function handleWinter() {
+   for(let i in grassArray){
+       grassArray[i].multiply = 30
+   }
+   for(let i in grassEaterArr){
+    grassEaterArr[i].energy = 1
+}
+for(let i in waterArr){
+    waterArr[i].energy = 2
+}
+for(let i in predatorArr){
+    predatorArr[i].energy = 2
+}
+for(let i in soilArr){
+    soilArr[i].energy = 2
+}
+for(let i in tornadoArr){
+    tornadoArr[i].energy = 1
+    console.log(tornadoArr[i].energy)
+}
+
+
+}
+
+function handleSummer() {
+    console.log("w====>>>");
+}
+
+function handleAutumn() {
+    console.log("w========>>>");
+}
 
 
 
